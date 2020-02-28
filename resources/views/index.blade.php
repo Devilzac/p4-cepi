@@ -1,6 +1,7 @@
 @extends('layout.principal')
 
 @section('main')
+<div class="container">
     <div class="card">
       <div class="card-header">
           <i class="fas fa-book"></i><b>Lista Libros</b>
@@ -10,8 +11,8 @@
               </a>
           </div>
       </div>
-      <div class="card-body">
-            <table class="table table-striped table-dark py-4">
+      <div class="card-body p-0">
+            <table class="table table-striped table-dark">
               <thead>
                 <tr>
                   <th scope="col">Titulo</th>
@@ -52,9 +53,10 @@
                         @endforeach
                     @else           
                       <tr>
-                        <td>No hay libros disponibles!</td>
+                          <td colspan="8">No hay libros disponibles!</td>
                       </tr>
                     @endif
               </tbody>
             </table>
+      </div>
 @endsection

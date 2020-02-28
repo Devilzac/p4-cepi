@@ -11,9 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 Route::resource("formulario", "LibroController");
-Route::get("inicio", "LibroController@index")->name("inicio");
+Route::get("/inicio", "LibroController@index")->name("inicio");
