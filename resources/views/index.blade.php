@@ -59,4 +59,8 @@
               </tbody>
             </table>
       </div>
+        
+        <div class="card-footer">
+            {{$libros->links()}}
+        </div>
 @endsection

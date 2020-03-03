@@ -14,7 +14,7 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::all();
+        $libros = Libro::orderBy('id','desc')->paginate(3);
        // dd($libros);
         return view('index', compact('libros'));
     }

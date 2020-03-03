@@ -8,6 +8,35 @@
     
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/5e23cd948e.js" crossorigin="anonymous"></script>
+    <style>
+        ul.pagination{
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 8px;
+        }
+        ul.pagination li {
+            font-size: 12px;
+            font-weight: bold;
+    display:table;
+        }
+
+        ul.pagination li a , ul.pagination li.active span, ul.pagination li.disabled span{
+            padding: 8px 8px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+        ul.pagination li a{
+            color:black;
+        }
+
+
+        ul.pagination li a:hover {background-color: #999999;}
+        ul.pagination li span {color: #999999;}
+        
+    
+    </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
