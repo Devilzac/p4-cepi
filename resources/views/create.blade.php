@@ -1,19 +1,22 @@
 @extends('layout.principal')
 
 @section('main')
+    @include('subvistas.formError')
+    
 <div class="container">
     <div class="card">
       <div class="card-header">
         Nuevo Libro
       </div>
       <div class="card-body">
-            <form>
+              <form action="{{route('formulario.store')}}" method="post">
+                  {{csrf_field()}}
                 <div class="form-row mb-3 mt-3">
                   <div class="col-6">
-                      <input type="text" class="form-control" id="tituloLibro" name="tituloLibro" placeholder="Titulo Libro" required>
+                      <input type="text" class="form-control" id="tituloLibro" name="titulo" placeholder="Titulo Libro" >
                   </div>
                   <div class="col-6">
-                      <input type="number" class="form-control" id="numeroPaginas" name="numeroPaginas" placeholder="Numero de Paginas" required>
+                      <input type="number" class="form-control" id="numeroPaginas" name="npaginas" placeholder="Numero de Paginas" required>
                   </div>
                 </div>
 
@@ -25,10 +28,10 @@
 
                 <div class="form-row mb-3 mt-3">
                   <div class="col-6">
-                      <input type="number" class="form-control" id="edicionLibro" name="edicionLibro" placeholder="Edición Libro" required>
+                      <input type="number" class="form-control" id="edicionLibro" name="nedicion" placeholder="Edición Libro" required>
                   </div>
                   <div class="col-6">
-                      <input type="number" class="form-control" id="precioPaginas" name="precioPaginas" placeholder="Precio de el Paginas" required>
+                      <input type="number" class="form-control" id="precioPaginas" name="precio" placeholder="Precio de el Paginas" required>
                   </div>
                 </div>
 
@@ -40,7 +43,7 @@
 
                 <button class="btn btn-success col-12 mb-3 mt-3" type="submit">Guardar</button>
 
-                <button class="btn btn-primary col-12 mb-3 mt-3" type="submit">Atrás</button>
+                <a class="btn btn-primary col-12 mb-3 mt-3" href="{{ route('formulario.index') }}">Atrás</a>
             </form>
         </div>
     </div>

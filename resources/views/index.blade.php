@@ -42,7 +42,7 @@
                                 </td>
                                 <td>
                                     <form action="{{action('LibroController@destroy', $libro->id)}}" method="post">
-                                        {{csrf_field}}
+                                        {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button class="btn btn-danger btn-xs" type="submit">
                                             <i class="fas fa-trash-alt"></i>

@@ -37,7 +37,16 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+                "titulo" => ['required', 'min:1'],
+                "npaginas" => ['required', 'numeric'],
+                "resumen" => ['required', 'min:1'],
+                "nedicion" => ['required', 'numeric'],
+                "precio" => ['required', 'numeric'],
+                "autor" =>['required', 'min:1']
+            ]);
+        Libro::create($request->all());
+        return redirect()->route("formulario.index")->with('todook','Libros añadidos correctamente');
     }
 
     /**
@@ -48,7 +57,7 @@ class LibroController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -59,7 +68,8 @@ class LibroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $libro = Libro::find($id);
+        return view("edit", compact("libro"));
     }
 
     /**
@@ -69,9 +79,18 @@ class LibroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id)    {
+        
+        $this->validate($request, [
+                "titulo" => ['required', 'min:1'],
+                "npaginas" => ['required', 'numeric'],
+                "resumen" => ['required', 'min:1'],
+                "nedicion" => ['required', 'numeric'],
+                "precio" => ['required', 'numeric'],
+                "autor" =>['required', 'min:1']
+            ]);
+        Libro::find($id)->update($request->all());
+        return redirect()->route("formulario.index")->with('todook','Libros se actializaron correctamente');
     }
 
     /**
@@ -82,6 +101,10 @@ class LibroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $libro = Libro::find($id);
+        $titulo = $libro->titulo;
+        $libro->delete();
+        
+        return redirect()->route("formulario.index")->with('todook',"El libro titulado '$titulo' fue borrado correctamente");
     }
 }

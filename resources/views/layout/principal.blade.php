@@ -27,6 +27,12 @@
                     @include('layout.navBar')
                 </header>
                 <main>
+                    @if(Session::has('todook'))
+                        <div class='alert-info'>
+                            {{Session::get('todook')}}
+                        </div>                    
+                    @endif
+                    
                     @yield('main')
                 </main>
             </div>
