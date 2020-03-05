@@ -13,3 +13,8 @@
 
 Route::resource("formulario", "LibroController");
 Route::get("/inicio", "LibroController@index")->name("inicio");
+
+Route::get('/form', function(){
+    return view('buscar');
+});
+Route::post("/form", "FormularioController@busqueda_por_titulo")->name("form");

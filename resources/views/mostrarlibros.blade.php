@@ -4,11 +4,11 @@
 <div class="container">
     <div class="card">
       <div class="card-header">
-          <i class="fas fa-book"></i><b>Lista Libros</b>
+          <i class="fas fa-book"></i><b>Datos de libro seleccionado</b>
           <div class="btn-group float-right" role="group">
-              <a href="{{route('formulario.create')}}" class="btn btn-info" role="buton">
-                  <i class="fas fa-plus"></i> Añadir Libro
-              </a>
+                   <a class="btn btn-primary" href="{{ route('form') }}">
+                       Atrás
+                   </a>
           </div>
       </div>
       <div class="card-body p-0">
@@ -59,10 +59,5 @@
               </tbody>
             </table>
       </div>
-        
-        <div class="card-footer">            
-            @if($libros->count())
-                {{$libros->links()}}
-            @endif
-        </div>
+    </div>
 @endsection
